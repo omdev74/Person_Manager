@@ -3,13 +3,16 @@ import React from 'react';
 import classes from './Person.module.css'
 
 const person = (props)=>{
-    // const style = {
-    //     "@media(min-width:500px)":{
-    //         width:"450px"
-    //     }
+   
+
+    //will Throw an Error------------------------------------------------------------->
+    // const rnd = 3;
+    // if(rnd >2){
+    //     throw new Error("Something Went Wrong!!!!!!!!!!!");
     // }
+    //--------------------------------------------------------------------------------->
     return (
-        // <div className="Person" style={style}>
+       
         <div className={classes.Person}>
         <p onClick={props.click}>I'm {props.name}! I am {props.age} yers Old</p>
         <p>{props.children}</p>
