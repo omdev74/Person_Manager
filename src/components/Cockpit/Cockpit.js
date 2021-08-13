@@ -2,6 +2,16 @@ import React from "react";
 import classes from "./Cockpit.module.css"
 
 const cockpit =(props)=>{
+    // useEffect(() => {
+    //   effect
+    //   return () => {
+    //     cleanup
+    //   }
+    // }, [input])
+    useEffect(() => {
+      console.log("[Cockpit.js] useEffect")
+    });
+
     const assignedClasses = []//initially none
 
     let btnClasses="";
