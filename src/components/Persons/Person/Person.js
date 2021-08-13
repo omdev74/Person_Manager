@@ -3,14 +3,6 @@ import React from 'react';
 import classes from './Person.module.css'
 
 const person = (props)=>{
-   
-
-    //will Throw an Error------------------------------------------------------------->
-    // const rnd = 3;
-    // if(rnd >2){
-    //     throw new Error("Something Went Wrong!!!!!!!!!!!");
-    // }
-    //--------------------------------------------------------------------------------->
     return (
        
         <div className={classes.Person}>
