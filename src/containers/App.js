@@ -27,6 +27,20 @@ class App extends Component {
     console.log('[App.js] componentDidMount ')
   }
 
+  //update lifecycle
+  shouldComponentUpdate(nextProps,nextState){
+    console.log('[App.js] shouldComponentUpdate ')
+    //it would not let the component update
+    // return false;
+
+    return true;
+
+  }
+  
+  componentDidUpdate(prevProps,prevState,snapshot){
+    console.log('[App.js] componentDidUpdate')
+  }
+
   deletePersonHandler = (personIndex)=>{
     const persons = [...this.state.persons];
     persons.splice(personIndex,1);
