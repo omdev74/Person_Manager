@@ -2,9 +2,29 @@ import React ,{useEffect}from "react";
 import classes from "./Cockpit.module.css"
 
 const Cockpit =(props)=>{
-    useEffect(() => {
+    
+  //(empty array input[])it will run when comp is rendered & unmount 
+  useEffect(() => {
       console.log("[Cockpit.js] useEffect")
+      const timer = setTimeout(() => {
+        alert("Data Saved")
+        
+      }, 1000);
+      return ()=>{
+        //this code runs on unmount
+        clearTimeout(timer);
+        console.log("[Cockpit.js] clean up work ")
+      }
+    },[]);
+  
+    //(no input)it will run for every update cycle  
+  useEffect(() => {
+      console.log("[Cockpit.js] 2nd useEffect")
+      return () => {
+        console.log("[Cockpit.js] 2nd useEffect clean up work ")
+      }
     });
+    //css logic------------------------------------------
     const assignedClasses = []//initially none
 
     let btnClasses="";
@@ -18,7 +38,7 @@ const Cockpit =(props)=>{
       if(props.persons.length <=1){
         assignedClasses.push(classes.bold)//red and bold
       }
-
+      // --------------------------------------------------------
     return(
         <div className={classes.Cockpit}>
             <h1>{props.title}</h1>

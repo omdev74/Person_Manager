@@ -11,7 +11,14 @@ class Persons extends Component{
 
   shouldComponentUpdate(nextProps,nextState){
     console.log('[Persons.js] shouldComponentUpdate')
-    return true;
+    //hardly depends on reference doesnt check deeply
+    if(nextProps.persons !== this.props.persons){
+      return true;
+    }
+    else{
+      return false
+    }
+    
     //generally not hard coded it is conditional
   }
   getSnapshotBeforeUpdate(prevProps,prepState){
@@ -24,6 +31,9 @@ class Persons extends Component{
   componentDidUpdate(prevProps,prevState,snapshot){
     console.log('[Persons.js] componentDidUpdate')
     console.log(snapshot)
+  }
+  componentWillUnmount(){
+    console.log('[Persons.js] componentWillUnmount')
   }
   render(){
     console.log('[Persons.js] renderring...')
