@@ -1,18 +1,15 @@
-import React ,{useEffect}from "react";
+import React ,{useEffect,useRef}from "react";
 import classes from "./Cockpit.module.css"
 
 const Cockpit =(props)=>{
+  const toggleBtnRef = useRef(null);
     
   //(empty array input[])it will run when comp is rendered & unmount 
   useEffect(() => {
       console.log("[Cockpit.js] useEffect")
-      const timer = setTimeout(() => {
-        alert("Data Saved")
-        
-      }, 1000);
+      toggleBtnRef.current.click();
       return ()=>{
         //this code runs on unmount
-        clearTimeout(timer);
         console.log("[Cockpit.js] clean up work ")
       }
     },[]);
@@ -43,7 +40,8 @@ const Cockpit =(props)=>{
         <div className={classes.Cockpit}>
             <h1>{props.title}</h1>
             <p className={assignedClasses.join(" ")}>This is really working!</p>
-            <button 
+            <button
+            ref={toggleBtnRef} 
             className = {btnClasses}
             onClick={props.clicked}>
                 Toggle Persons
