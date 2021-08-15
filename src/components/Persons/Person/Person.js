@@ -5,6 +5,15 @@ import classes from './Person.module.css'
 import PropTypes from "prop-types"
 
 class Person extends Component{
+    constructor(props){
+        super(props);
+        this.inputElementRef=React.createRef();
+    }
+    componentDidMount(){
+        // this.inputElement.focus();
+        this.inputElementRef.current.focus();
+
+    }
     render(){
         console.log('[Person.js] renderring...')
         return (
@@ -12,13 +21,19 @@ class Person extends Component{
             {/* <div className={classes.Person}> */}
             <p onClick={this.props.click}>I'm {this.props.name}! I am {this.props.age} yers Old</p>
             <p>{this.props.children}</p>
-            <input 
+            <input
+            //ref method:1
+            // ref={(inputEl)=>{this.inputElement=inputEl}} 
+
+            //ref method:2 react@16.3
+            ref={this.inputElementRef}
             type="text" 
             onChange={this.props.changed} 
-            value={this.props.name}></input>
+            value={this.props.name}
+            key="i3"></input>
             {/* // </div> */}
             </Aux>
-        );
+            );
     }
 }
 
