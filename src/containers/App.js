@@ -15,6 +15,9 @@ class App extends Component {
       { id:"sadsad",name: 'Max', age: 28 },
       { id:"sadsdsa",name: 'Manu', age: 29 },
       { id:"asdasd",name: 'Stephanie', age: 26 }
+      
+      //this will through an error in PropTypes
+      // { id:"sadsad",name: 'Max', age: "28" }
     ],
     otherState: 'some other value',
     showPersons: false,
