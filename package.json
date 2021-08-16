@@ -1,6 +1,6 @@
 {
   "name": "5",
-  "version": "0.7.29",
+  "version": "0.7.30",
   "private": true,
   "dependencies": {
     "@babel/core": "7.12.3",
