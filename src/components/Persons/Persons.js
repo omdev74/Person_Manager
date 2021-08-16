@@ -1,7 +1,7 @@
-import React ,{Component}from 'react';
+import React ,{PureComponent}from 'react';
 import Person from './Person/Person';
 
-class Persons extends Component{
+class Persons extends PureComponent{
   // part of create and update life cycle as here is no state so not recommended 
   // though it will not give an error
 
@@ -9,18 +9,18 @@ class Persons extends Component{
   //   console.log('[Persons.js] getDerivedStateFromProps')
   // }
 
-  shouldComponentUpdate(nextProps,nextState){
-    console.log('[Persons.js] shouldComponentUpdate')
-    //hardly depends on reference doesnt check deeply
-    if(nextProps.persons !== this.props.persons){
-      return true;
-    }
-    else{
-      return false
-    }
+  // shouldComponentUpdate(nextProps,nextState){
+  //   console.log('[Persons.js] shouldComponentUpdate')
+  //   //hardly depends on reference doesnt check deeply
+  //   if(nextProps.persons !== this.props.persons){
+  //     return true;
+  //   }
+  //   else{
+  //     return false
+  //   }
     
-    //generally not hard coded it is conditional
-  }
+  //   //generally not hard coded it is conditional
+  // }
   getSnapshotBeforeUpdate(prevProps,prepState){
     console.log('[Persons.js] getSnapshotBeforeUpdate')
     return {message: "SnapShot"};//snapshot value
@@ -46,7 +46,8 @@ class Persons extends Component{
             name={person.name}
             age={person.age}
             key={person.id}
-            changed={(event)=>{this.props.changed(event,person.id);}}
+            changed={(event)=>{this.props.changed(event,person.id)}}
+            isAuth={this.props.isAuthenticated}
             />
             );
            });
